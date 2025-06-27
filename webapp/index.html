@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Pedicalc</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; }
+label { display:block; margin-top: 10px; }
+</style>
+</head>
+<body>
+<h1>小児投与量計算</h1>
+<form id="dose-form">
+<label>薬剤
+<select id="drug"></select>
+</label>
+<label>年齢
+<input type="number" id="age-years" min="0" placeholder="歳" style="width:60px;"> 歳
+<input type="number" id="age-months" min="0" max="11" placeholder="月" style="width:60px;"> ヶ月
+</label>
+<label>体重 (kg)
+<input type="number" id="weight" min="0" step="0.1">
+</label>
+<button type="submit">計算</button>
+</form>
+<div id="result"></div>
+<script src="app.js"></script>
+</body>
+</html>
