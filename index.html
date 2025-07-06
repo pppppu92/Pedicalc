@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>PediCalc</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>PediCalc</h1>
+<div id="calc-area">
+  <label>年齢:
+    <input type="number" id="ageYears" placeholder="歳" min="0" step="1">歳
+    <input type="number" id="ageMonths" placeholder="か月" min="0" max="11" step="1">か月
+  </label>
+  <br>
+  <label>体重:
+    <input type="number" id="weight" step="0.1" min="0">kg
+  </label>
+  <br>
+  <label>薬剤:
+    <select id="drugSelect"></select>
+  </label>
+  <button id="openManager">薬剤管理</button>
+  <br>
+  <button id="calcBtn">計算</button>
+</div>
+<div id="result"></div>
+
+<!-- Drug manager modal -->
+<div id="drugModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h2>薬剤登録</h2>
+    <label>薬剤名: <input type="text" id="drugName"></label><br>
+    <label>薬剤分類: <input type="text" id="drugCategory"></label><br>
+    <label>用法: <input type="text" id="drugUsage"></label><br>
+    <label>回数: <input type="text" id="drugFrequency"></label><br>
+    <label>成人量(mg/day): <input type="number" id="adultDose" min="0"></label><br>
+    <label>6か月未満(mg/kg/day or -): <input type="text" id="dose_lt_6m"></label><br>
+    <label>6か月以上1歳未満(mg/kg/day or -): <input type="text" id="dose_6m_lt_1y"></label><br>
+    <label>1歳以上3歳未満(mg/kg/day or -): <input type="text" id="dose_1y_lt_3y"></label><br>
+    <label>3歳以上8歳未満(mg/kg/day or -): <input type="text" id="dose_3y_lt_8y"></label><br>
+    <label>8歳以上12歳未満(mg/kg/day or -): <input type="text" id="dose_8y_lt_12y"></label><br>
+    <label>12歳以上成人未満(mg/kg/day or -): <input type="text" id="dose_12y_lt_adult"></label><br>
+    <label>投与可能最低年齢(例:3y2mまたは-): <input type="text" id="minAge"></label><br>
+    <button id="addDrug">登録</button>
+    <button id="closeManager">閉じる</button>
+
+    <h3>登録済み薬剤</h3>
+    <input type="text" id="searchBox" placeholder="検索">
+    <table id="drugTable" border="1">
+      <thead>
+        <tr>
+          <th data-sort="name">薬剤名</th>
+          <th data-sort="category">薬剤分類</th>
+          <th data-sort="usage">用法</th>
+          <th data-sort="frequency">回数</th>
+          <th data-sort="adult_dose">成人量</th>
+          <th>削除</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
