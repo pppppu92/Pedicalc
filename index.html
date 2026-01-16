@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>割引計算</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; display: flex; flex-direction: column; align-items: center; }
-        .container { max-width: 400px; width: 100%; padding: 20px; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; margin: 20px; display: flex; flex-direction: column; align-items: center; background-color: #bce2e8; }
+        .container { max-width: 400px; width: 100%; padding: 20px; box-sizing: border-box; text-align: center; }
         input[type="number"] { padding: 8px; margin-bottom: 10px; width: calc(100% - 16px); box-sizing: border-box; }
         .button-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
         button { padding: 10px 15px; cursor: pointer; flex: 1 1 auto; min-width: 100px; max-width: 150px; }
@@ -20,19 +21,21 @@
     </style>
 </head>
 <body>
-    <h1>割引計算</h1>
+    <div class="container">
+        <h1>割引計算</h1>
 
-    <label for="originalPrice">定価:</label>
-    <input type="number" id="originalPrice" placeholder="定価を入力してください">
-    <br>
+        <label for="originalPrice">定価:</label>
+        <input type="number" id="originalPrice" placeholder="定価を入力してください">
+        <br>
 
-    <div class="button-group">
-        <button onclick="calculateDiscount(0.1)">1割引き</button>
-        <button onclick="calculateDiscount(0.2)">2割引き</button>
-        <button onclick="calculateDiscount(0.3)">3割引き</button>
+        <div class="button-group">
+            <button onclick="calculateDiscount(0.1)">1割引き</button>
+            <button onclick="calculateDiscount(0.2)">2割引き</button>
+            <button onclick="calculateDiscount(0.3)">3割引き</button>
+        </div>
+
+        <div id="result"></div>
     </div>
-
-    <div id="result"></div> 
 
     <script>
         function calculateDiscount(discountRate) {
